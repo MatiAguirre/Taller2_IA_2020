@@ -12,7 +12,7 @@
  */
 import java.util.Scanner;
 
-class GatoMiniMax2 {
+class GatoMiniMax {
 
     static Scanner scan = new Scanner(System.in);
 
