@@ -482,9 +482,16 @@ class GatoMiniMax2 {
             // lo termina y da el ganador
             if (comprobarGanador(tablero) == 10 || comprobarGanador(tablero) == -10) {
                 if (comprobarGanador(tablero) == 10) {
+                    MaxNa = (int) Double.POSITIVE_INFINITY;
+                    System.out.println(
+                            "Valor U(t): " + euristica(MaxNa, MinNc) + " Na(t), Nc(t): " + MaxNa + "," + MinNc);
                     System.out.println("Gano el jugador");
                     return false;
                 } else if (comprobarGanador(tablero) == -10) {
+                    MaxNa = maxNaEuristica(tablero);
+                    MinNc = (int) Double.NEGATIVE_INFINITY;
+                    System.out.println(
+                            "Valor U(t): " + euristica(MaxNa, MinNc) + " Na(t), Nc(t): " + MaxNa + "," + MinNc);
                     System.out.println("Gano la PC");
                     return false;
                 }
@@ -545,7 +552,8 @@ class GatoMiniMax2 {
     public static void main(String[] args) {
         char tablero[][] = { { '_', '_', '_' }, { '_', '_', '_' }, { '_', '_', '_' } };
         System.out.println("Bienvenido, ahora va a jugar como las X");
-        System.out.println("Su tablero es [fila,columna]:\n | [0,0] [0,1] [0,2] |\n | [1,0] [1,1] [1,2] |\n | [2,0] [2,1] [2,2] |");
+        System.out.println(
+                "Su tablero es [fila,columna]:\n | [0,0] [0,1] [0,2] |\n | [1,0] [1,1] [1,2] |\n | [2,0] [2,1] [2,2] |");
         if (!juego(tablero)) {
             System.out.println("Se acabo el juego");
         }
